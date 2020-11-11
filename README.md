@@ -4,12 +4,9 @@ Contributors: Aakansha Mathur and Hiloni Mehta
 
 Project Check in #1 (Week of 11/9 - 11/16)
 For the first check in, there are two parts:
-Instructions:
-1. 
-You will submit an outline that details your plan and the main ideas via Devpost by 11/13. The outline requirements are described below. Additionally, submit the URL of your Devpost submission and the URL of your Github repo in this form. Please do not include your Github URL in the Devpost submission. You will meet with your mentor TA and review the work you have done since your project has been approved. Your TA will reach out to you by 11/9 to schedule a meeting within the week of 11/9 - 11/16.  
 
-Understanding: have as thorough of an understanding as possible of the paper you’re replicating/problem you’re solving, 
-Data: come with ideas on what data you’ll need to use (and how you can access it), 
+Understanding: 
+Data: Flicker8 (https://www.kaggle.com/adityajn105/flickr8k), Flicker30 (https://www.kaggle.com/hsankesara/flickr-image-dataset), MS Coco (https://cocodataset.org/#download)
 Methods: have a rough idea of what kind of architecture you plan on implementing, and 
 Metrics: have a proposal for your base, target, and stretch goals.
 (Note: 
@@ -19,7 +16,7 @@ Further note that these goals are flexible and can be re-evaluated at later chec
  
 The outline that you submit/write-up to Devpost should contain the following:
 Title: Summarizes the main idea of your project. Clever/catchy acronyms and/or puns are welcome. Deep thoughts also welcome.
-Who: Names and logins of all your group members. Take credit for your awesome work!
+Who: Aakansha Mathur (amathur7) and Hiloni Mehta 
 Introduction: What problem are you trying to solve and why?
 If you are implementing an existing paper, describe the paper’s objectives and why you chose this paper.
 If you are doing something new, detail how you arrived at this topic and what motivated you.
