@@ -3,10 +3,11 @@ Final Project for CSCI 1470: Brown University
 Contributors: Aakansha Mathur and Hiloni Mehta
 
 Project Check in #1 (Week of 11/9 - 11/16)
- 
 For the first check in, there are two parts:
-You will submit an outline that details your plan and the main ideas via Devpost by 11/13. The outline requirements are described below. Additionally, submit the URL of your Devpost submission and the URL of your Github repo in this form. Please do not include your Github URL in the Devpost submission.
-You will meet with your mentor TA and review the work you have done since your project has been approved. Your TA will reach out to you by 11/9 to schedule a meeting within the week of 11/9 - 11/16.  Note that while you are not required to submit your outline to Devpost before you meet with your TA, we highly recommend having an “80% plan” by your meeting so you can productively discuss how to move forward with your mentor TA. In particular, prior to this meeting, try to have an idea of:
+Instructions:
+1. 
+You will submit an outline that details your plan and the main ideas via Devpost by 11/13. The outline requirements are described below. Additionally, submit the URL of your Devpost submission and the URL of your Github repo in this form. Please do not include your Github URL in the Devpost submission. You will meet with your mentor TA and review the work you have done since your project has been approved. Your TA will reach out to you by 11/9 to schedule a meeting within the week of 11/9 - 11/16.  
+
 Understanding: have as thorough of an understanding as possible of the paper you’re replicating/problem you’re solving, 
 Data: come with ideas on what data you’ll need to use (and how you can access it), 
 Methods: have a rough idea of what kind of architecture you plan on implementing, and 
