@@ -1,7 +1,7 @@
 from os import listdir
 
 def main():
-    '''
+    
     with open(r'dataset/captions.txt', 'r') as f:
         captions = f.read()
     for name in listdir(r'dataset/train/Images'):
@@ -12,7 +12,7 @@ def main():
                 train_captions = open(r'dataset/train_captions.txt', 'a')
                 train_captions.writelines(line + "\n")
                 train_captions.close()
-    '''
+    
     with open(r'dataset/captions.txt', 'r') as f:
         captions = f.read()
     for name in listdir(r'dataset/test/Images'):
