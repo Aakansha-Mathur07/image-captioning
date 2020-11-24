@@ -14,7 +14,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.porter import PorterStemmer 
 import collections
-import splitfolders
 
 def get_data(directory, file_path):
     features = {}
