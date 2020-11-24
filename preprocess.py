@@ -14,6 +14,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.porter import PorterStemmer 
 import collections
+import splitfolders
 
 def get_data(directory, file_path):
     features = {}
@@ -40,4 +41,6 @@ def get_data(directory, file_path):
         captions = [PorterStemmer().stem(word) for word in captions]
         image_name = image_name.split('.')[0]
         image_captions[image_name].append(captions)
+
+        
     return image_captions, features
