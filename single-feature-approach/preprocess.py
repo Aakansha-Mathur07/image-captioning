@@ -14,7 +14,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.porter import PorterStemmer 
 import collections
-from collections import Counter
 
 def get_data(directory, file_path):
     features = {}
@@ -44,6 +43,5 @@ def get_data(directory, file_path):
         else:
             image_captions[image_name] = list()
             image_captions[image_name].append(captions)
-
         
     return image_captions, features
