@@ -3,7 +3,7 @@ from preprocess import get_data
 def main():
     #This returns a dictionary. The image_captions is a dictionary {image_name, captions}
     #The features is a dictionary {image_name, pixels}
-    #The image shape is 32,32,3
+    #The image shape is 224,224,3
     train_directory = r'dataset/train/Images'
     train_file_path = r'dataset/train_captions.txt'
     train_captions, train_features =  get_data(train_directory, train_file_path)

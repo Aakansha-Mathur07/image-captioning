@@ -14,10 +14,11 @@ from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem.porter import PorterStemmer 
 import collections
+from collections import Counter
 
 def get_data(directory, file_path):
     features = {}
-    image_captions = collections.defaultdict(list)
+    image_captions = dict()
     for name in listdir(directory):
         filename = directory + '/' + name
         image = load_img(filename, target_size=(224, 224))
@@ -39,7 +40,11 @@ def get_data(directory, file_path):
         captions = [word for word in captions if word not in stop_words] 
         captions = [PorterStemmer().stem(word) for word in captions]
         image_name = image_name.split('.')[0]
-        image_captions[image_name].append(captions)
+        if image_name in image_captions:
+            image_captions[image_name].append(captions)
+        else:
+            image_captions[image_name] = list()
+            image_captions[image_name].append(captions)
 
         
     return image_captions, features
