@@ -22,8 +22,7 @@ def get_data(directory, file_path):
     for name in listdir(directory):
         filename = directory + '/' + name
         image = load_img(filename, target_size=(224, 224))
-        image = img_to_array(image)
-        input_arr = np.array([image])
+        input_arr = img_to_array(image)
         input_arr = input_arr/255.0
         image_name = name.split('.')[0]
         features[image_name] = input_arr
