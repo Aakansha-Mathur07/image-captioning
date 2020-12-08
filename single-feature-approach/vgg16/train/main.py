@@ -42,7 +42,7 @@ def call(vocab_size, max_length):
 
 caption_filename = r'dataset/train_captions.txt'
 image_filename = r'train_features.pkl'
-descriptions, vocabulary, features = get_data(caption_filename, image_filename, 'train')
+descriptions, vocabulary, features = get_data(caption_filename, image_filename)
 all_desc = list()
 for key in descriptions.keys():
     [all_desc.append(d) for d in descriptions[key]]
