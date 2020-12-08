@@ -44,14 +44,11 @@ def get_data(filename, image_filename, keyword):
             data_lines.append(image_id + ' ' + caption)
     
     text_features = '\n'.join(data_lines)
-    if(keyword=='train'):
-        file = open('train_captions.txt', 'w')
-        file.write(text_features)
-        file.close()
-    else:
-        file = open('test_captions.txt', 'w')
-        file.write(text_features)
-        file.close()
+
+    file = open('train_captions.txt', 'w')
+    file.write(text_features)
+    file.close()
+
     
     set(all_image_id)
     all_features = pickle.load(open(image_filename, 'rb'))
