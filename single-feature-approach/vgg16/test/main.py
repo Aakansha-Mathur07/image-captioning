@@ -53,7 +53,7 @@ tokenizer = Tokenizer()
 tokenizer.fit_on_texts(all_desc)
 tokenized_value = tokenizer
 max_length = max(len(d.split()) for d in all_desc)
-model = tf.keras.models.load_model('model.h5')
+model = tf.keras.models.load_model('train/model.h5')
 accuracy(model, descriptions, features, tokenized_value, max_length)
 
 
