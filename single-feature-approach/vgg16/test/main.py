@@ -11,40 +11,50 @@ from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Embedding
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Add
-from keras.models import load_model
 from nltk.translate.bleu_score import corpus_bleu
 import numpy as np
+import tensorflow as tf
 
-def create_sequences(tokenizer, max_length, image_captions, photos, vocab_size):
-    X1, X2, y = list(), list(), list()
-    for image, captions in image_captions.items():
-        for caption in captions:
-            sequence = tokenizer.texts_to_sequences([caption])[0]
-            for i in range(1, len(sequence)):
-                train_caption, train_caption_label = sequence[:i], sequence[i]
-                train_caption = pad_sequences([train_caption], maxlen=max_length)[0]
-                train_caption_label = to_categorical([train_caption_label], num_classes=vocab_size)[0]
-                X1.append(photos[key][0])
-                X2.append(train_caption)
-                y.append(train_caption_label)
-    return array(X1), array(X2), array(y)
+def get_id(value, tokenizer):
+    for word, index in tokenizer.word_index.items():
+        if index == value:
+            return word
+    return None
 
-
+def accuracy(model, image_captions, features, tokenizer, max_length):
+    actual_output = []
+    predicted_output = []
+    
+    for image, captions in image_captions.items():     
+        predicted_text = '*START*'
+        for i in range(max_length):
+            sequence = tokenizer.texts_to_sequences([predicted_text])[0]
+            sequence = pad_sequences([sequence], maxlen=max_length)
+            probs = model.predict([features[image],sequence], verbose=1)
+            probs = np.argmax(probs)
+            word = get_id(probs, tokenizer)
+            if word is None:
+                break
+            predicted_text += ' ' + word
+            if word == '*STOP*':
+                break
+        caption = [caption.split() for caption in captions]
+        actual_output.append(caption)
+        predicted_output.append(predicted_text.split())
+    print('BLEU: %f' % corpus_bleu(actual_output, predicted_output, weights=(1.0, 0, 0, 0)))
 
 caption_filename = r'dataset/test_captions.txt'
 image_filename = r'test_features.pkl'
 descriptions, vocabulary, features = get_data(caption_filename, image_filename)
-
-"""
-all_desc = list()
+all_desc = list() 
 for key in descriptions.keys():
     [all_desc.append(d) for d in descriptions[key]]
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(all_desc)
 tokenized_value = tokenizer
 max_length = max(len(d.split()) for d in all_desc)
-filename = 'model.h5'
-model = load_model(filename)
-evaluate_model(model, descriptions, features, tokenized_value, max_length)
-"""
-print('Done')
+model = tf.keras.models.load_model('model.h5')
+accuracy(model, descriptions, features, tokenized_value, max_length)
+
+
+#BLEU: 0.070763
