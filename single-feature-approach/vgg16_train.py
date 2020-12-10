@@ -1,4 +1,4 @@
-from extractText import get_data
+from extractTrain import get_train
 from keras.preprocessing.text import Tokenizer
 from numpy import array
 from pickle import load
@@ -42,7 +42,7 @@ def call(vocab_size, max_length):
 
 caption_filename = r'dataset/train_captions.txt'
 image_filename = r'train_features.pkl'
-descriptions, vocabulary, features = get_data(caption_filename, image_filename)
+descriptions, vocabulary, features = get_train(caption_filename, image_filename)
 all_desc = list()
 for key in descriptions.keys():
     [all_desc.append(d) for d in descriptions[key]]
@@ -56,7 +56,7 @@ print(X2train.shape)
 print(ytrain.shape)
 model = call(len(vocabulary), max_length)
 model.fit([X1train, X2train], ytrain, epochs=1, verbose=2, batch_size=1000)
-model.save('inceptionv3model'+ '.h5')
+model.save('vgg16model'+ '.h5')
 
 
-#LOSS: 5.9287
+#The model loss is 5.9271

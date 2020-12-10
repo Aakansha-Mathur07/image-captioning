@@ -1,4 +1,4 @@
-from extractText import get_data
+from extractTest import get_test
 from keras.preprocessing.text import Tokenizer
 from numpy import array
 from pickle import load
@@ -44,8 +44,8 @@ def accuracy(model, image_captions, features, tokenizer, max_length):
     print('BLEU: %f' % corpus_bleu(actual_output, predicted_output, weights=(1.0, 0, 0, 0)))
 
 caption_filename = r'dataset/test_captions.txt'
-image_filename = r'test_features.pkl'
-descriptions, vocabulary, features = get_data(caption_filename, image_filename)
+image_filename = r'vgg16_test_features.pkl'
+descriptions, vocabulary, features = get_test(caption_filename, image_filename)
 all_desc = list() 
 for key in descriptions.keys():
     [all_desc.append(d) for d in descriptions[key]]
@@ -53,9 +53,8 @@ tokenizer = Tokenizer()
 tokenizer.fit_on_texts(all_desc)
 tokenized_value = tokenizer
 max_length = max(len(d.split()) for d in all_desc)
-model = tf.keras.models.load_model('inceptionv3model.h5')
+model = tf.keras.models.load_model('model.h5')
 accuracy(model, descriptions, features, tokenized_value, max_length)
 
 
-
-#BLEU: 0.070736
+#BLEU: 0.070763

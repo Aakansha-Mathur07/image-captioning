@@ -17,7 +17,7 @@ train_captions = dict()
 vocabulary = set()
 data_lines = list()
 all_image_id = list()
-def get_data(filename, image_filename):
+def get_test(filename, image_filename):
     file = open(filename, 'r')
     text = file.read()
 

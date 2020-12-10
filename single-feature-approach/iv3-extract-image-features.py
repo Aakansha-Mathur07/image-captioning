@@ -19,7 +19,7 @@ def get_data(directory):
     model = Model(inputs=model.inputs, outputs=model.layers[-1].output)
     for name in listdir(directory):
         filename = directory + '/' + name
-        image = load_img(filename, target_size=(224, 224))
+        image = load_img(filename, target_size=(299, 299))
         image = img_to_array(image)
         image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))
         image = preprocess_input(image)
@@ -31,7 +31,7 @@ def get_data(directory):
     
 directory =  r'dataset/train/Images'
 features = get_data(directory)
-dump(features, open('train_features.pkl', ' wb'))
+dump(features, open('iv3_train_features.pkl', ' wb'))
 directory =  r'dataset/test/Images'
 features = get_data(directory)
-dump(features, open('test_features.pkl', 'wb'))
+dump(features, open('iv3_test_features.pkl', 'wb'))

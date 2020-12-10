@@ -31,7 +31,7 @@ def get_data(directory):
     
 directory =  r'dataset/train/Images'
 features = get_data(directory)
-dump(features, open('train_features.pkl', ' wb'))
+dump(features, open('vgg16_train_features.pkl', ' wb'))
 directory =  r'dataset/test/Images'
 features = get_data(directory)
-dump(features, open('test_features.pkl', 'wb'))
+dump(features, open('vgg16_test_features.pkl', 'wb'))
