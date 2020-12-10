@@ -14,7 +14,7 @@ import pickle
 features = dict()
 
 def get_data(directory):
-    model = VGG16()
+    model = InceptionV3()
     model.layers.pop()
     model = Model(inputs=model.inputs, outputs=model.layers[-1].output)
     for name in listdir(directory):
